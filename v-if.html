@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- v-if跟v-show的区别  v-show消失是display：none  v-if是直接在domtree中消失  较多的话用v-show操作dom树消耗大 -->
+<body>
+    <div id="app">
+        <input type="button" value="切换显示" @click="toggleIsShow">
+        <p v-if="isShow">sophisticated</p>
+        <p v-else>simple</p>     <!--v-if与v-else中不能有其他元素 -->
+        <p v-show="isShow">brilliant</p>
+    </div>
+    <script src="vue/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                isShow:false
+            },
+            methods:{
+                toggleIsShow:function(){
+                    this.isShow=!this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

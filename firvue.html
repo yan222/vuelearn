@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{
+            message
+        }}
+        <span>{{school.name}}</span> 
+        <ul>
+            <li>{{human[0]}}</li>
+            <li>{{human[1]}}</li>
+        </ul>   
+    </div>
+    
+    <script>
+        var app=new Vue({
+            el:"#app",     //el为挂载点 通过css选择器选中元素 作用范围在app及其子节点
+            data:{           //data is json  类型message obj array  
+                message:"Hello" ,
+                school:{
+                    name:"ox" ,
+                    special:"zhuangbi"
+                },
+                human:["black","white"],
+                }
+        })
+    </script>
+</body>
+</html>

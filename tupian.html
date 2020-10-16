@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #app{
+        position: absolute;
+        top:30%;
+        left: 45%;
+        border: solid 1px red;
+        height: 200px;
+        width: 200px;
+    }
+    #left{
+        position: absolute;
+        top:50%;
+        left: 0%;
+    }
+    #left:hover{
+        cursor: pointer;
+    }
+    #right{
+        position:absolute;
+        top: 50%;
+        right: 0%;
+    }
+    #right:hover{
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div id="app" @mouseover="dis" @mouseout="hide">
+        
+        <img :src="imgSrc+index+'.jpg'" alt="" style="height: 200px; width: 200px;">
+        <div id="left" @click="le"  v-show="isShow"> < </div>
+        <div id="right" @click="ri"  v-show="isShow">></div>
+    </div>
+    <script src="vue/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                index:1,
+                imgSrc:"./image/banner",
+                isShow:false,
+            },
+            methods:{
+                le:function(){
+                    if(this.index>1){
+                        this.index--   ;
+                        console.log(this.index)
+                    }
+                    else this.index=5;
+                },
+                ri:function(){
+                    if(this.index<5){
+                        this.index++;
+                        console.log(this.index);
+                    }
+                    else this.index=1;
+                },
+                dis:function(){
+                    this.isShow=true;
+                },
+                hide:function(){
+                    this.isShow=false;
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

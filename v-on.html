@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:hover{
+            cursor: pointer;
+            background-color: blue;
+            border-radius: 30%;
+        }
+    </style>
+</head>
+<!-- vue event  事件绑定  。事件修饰符 enter是回车修饰符 -->
+<body>
+    <div id="app">
+        <input type="button" value="v-on指令" v-on:click="doit">
+        <input type="button" value="v-on简写" @click="doit(222)">   <!--传递参数-->
+        <input type="button" value="double click" @dblclick="doit">
+        <input type="text" name="" id="" @keyup.enter="sayHi">
+        <h2 @click="changeWeapons"> {{weapons}}</h2>
+    </div>
+    <script src="vue/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                weapons:"ruffle"
+            },
+            methods:{
+                doit:function(p1){
+                    alert(p1);
+                },
+                changeWeapons:function(){
+                    this.weapons+="powerful";
+                    
+                },
+                sayHi:function(){
+                    alert("hello");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

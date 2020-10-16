@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--设置textContent -->
+<body>
+    <div id="app">
+        <h3 v-text="message">ddd</h3> <!--标签内 内容全部被覆盖-->
+        <h3 v-text="info+'!'"></h3>  <!--可以用加号连接-->
+        <h3>{{message}} but we also chase for it</h3><!--若不想被覆盖，写到标签里面-->
+    </div>
+
+    <script src="vue/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"love is pain",
+                info:"this istrue"
+            }
+        })
+    </script>
+</body>
+</html>

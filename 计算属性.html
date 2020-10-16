@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{firstname+lastname}}</h1>
+        <h1>{{fullname}}</h1>
+        <h2>{{word.split("").reverse().join("")}}</h2>
+        <h2>{{reverseword}}</h2>
+    </div>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                firstname:"zhang",
+                lastname:"san",
+                word:"hello",
+            }, 
+            computed:{
+                fullname:function(){
+                    console.log(this);
+                    //会将计算结果进行缓存,只要数据不改变就不会重新计算，反复调用使提高性能
+                    return this.firstname+this.lastname;
+                },
+                reverseword:function(){
+                    return this.word.split("").reverse().join("")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

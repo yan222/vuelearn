@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            border:1px red solid;
+        }
+    </style>
+</head>
+<!-- v-bind命令的作用是：为元素绑定属性  完整写法v-bind：属性名=  可简写为：属性名    一般绑定src、title等属性-->
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" alt="" style="height: 100px; width: 100px;">
+        <img :src="imgSrc" alt="" :title="imgTitle+'!!!'"  
+        style="height: 100px; width: 100px;"
+        :class="isActive?'active':''" @click="toggleActive">    <!--三元表达式 isActive非空则active 否则添加一个空字符串-->
+        <img :src="imgSrc" alt="" :
+        
+        class="{active:isActive}" @click="toggleActive"
+        style="height: 100px; width: 100px;">
+
+    </div>
+    <script src="vue/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"./image/ly.jpg",
+                imgTitle:"liuyuan",
+                isActive:false,
+            },
+            methods:{
+                toggleActive:function(){
+                    this.isActive=!this.isActive;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

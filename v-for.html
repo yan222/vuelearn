@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="add" @click="add">
+        <input type="button" value="remove" @click="remove">
+        <ul>
+            <li v-for="(item,key) in arr">
+               {{key+1 }} 哲学家：{{item}}   <!--key 与index效果相同-->
+            </li>
+            
+        </ul>
+        <h2 v-for="item in movies" v-bind:title="item.name">
+            {{item.name}}
+        </h2>
+        <ul>
+            <li v-for="(item,index) in details[0]">{{index}}{{item}}</li>   <!--可以循环对象的元素-->
+        </ul>
+    </div>
+    <script src="vue/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                arr:["苏格拉底","康德","尼采"],
+                movies:[{name:"flipped"},{name:"tent"},{name:"die"}],
+                details:[{
+                    name:"Thales",
+                    times:"BC584/585",
+                    theroy:"water is origin",
+                }]
+            },
+            methods:{
+                add:function(){
+                    this.movies.push({name:"knowing"}); //向数组最后加入元素
+                },
+                remove:function(){
+                     this.movies.shift();
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>
